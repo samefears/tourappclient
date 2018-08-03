@@ -1,27 +1,22 @@
 {
-  presets: [
-    [
-      'es2015',
-      {
-        modules: false,
-      },
-    ],
-    'stage-0',
-    'react',
+  "presets": [
+    "es2015",
+    "stage-0",
+    "react"
   ],
-  env: {
-    test: {
-      plugins: ['transform-es2015-modules-commonjs'],
-    },
+  "env": {
+    "test": {
+      "plugins": ["transform-es2015-modules-commonjs"],
+    }
   },
-  plugins: [
+  "plugins": [
     [
-      'transform-runtime',
-      'transform-async-to-generator',
+      "transform-runtime",
+      "transform-async-to-generator",
       {
-        polyfill: false,
-        regenerator: true,
-      },
-    ],
-  ],
+        "polyfill": false,
+        "regenerator": true,
+      }
+    ]
+  ]
 }
