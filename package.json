@@ -13,7 +13,7 @@
   ],
   "scripts": {
     "dev": "rimraf dist && parcel public/dev.html",
-    "build": "rimraf dist && parcel build public/prod.html",
+    "build": "rimraf dist && parcel build public/prod.html --out-file index.html --detailed-report",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],

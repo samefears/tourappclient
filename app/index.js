@@ -4,9 +4,11 @@ import Main from './Containers/Main';
 import './Styles/main.scss';
 
 function renderApp() {
-  ReactDOM.render( <Main/> , document.getElementById('main'));
+  ReactDOM.render(<Main />, document.getElementById('main'));
 }
 
 renderApp();
 
-module.hot.accept(renderApp);
+if (process.env.NODE_ENV !== 'production') {
+  module.hot.accept(renderApp);
+}
