@@ -1,8 +1,8 @@
 {
   "presets": [
     "es2015",
-    "stage-0",
-    "react"
+    "react",
+    "stage-0"
   ],
   "env": {
     "test": {
@@ -10,8 +10,9 @@
     }
   },
   "plugins": [
+    "transform-runtime",
+    "transform-class-properties",
     [
-      "transform-runtime",
       "transform-async-to-generator",
       {
         "polyfill": false,

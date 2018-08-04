@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import propTypes from 'prop-types';
 
 export default class Main extends Component {
-  static propTypes = {};
+  // static propTypes = {};
 
   static defaultProps = {};
 
