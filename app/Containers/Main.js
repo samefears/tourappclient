@@ -9,6 +9,6 @@ export default class Main extends Component {
   state = {};
 
   render() {
-    return <div> Hello world </div>;
+    return <div> Hello world! </div>;
   }
 }
