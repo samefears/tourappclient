@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Main from './Containers/Main';
-import './styles/main.scss';
+import './Styles/main.scss';
 
 function renderApp() {
-  ReactDOM.render(<Main />, document.getElementById('main'));
+  ReactDOM.render( < Main /> , document.getElementById('main'));
 }
 
 renderApp();
