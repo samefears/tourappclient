@@ -13,8 +13,8 @@
   ],
   "scripts": {
     "dev": "rimraf dist && parcel public/dev.html --log-level 3 --open",
-    "build:dev": "rimraf dist && parcel build public/prod.html --out-file index.html --detailed-report --no-source-maps",
-    "build": "rimraf dist && parcel build public/prod.html --out-file index.html --detailed-report",
+    "build:dev": "rimraf dist && parcel build public/prod.html --out-file index.html --detailed-report",
+    "build": "rimraf dist && parcel build public/prod.html --out-file index.html --detailed-report --no-source-maps",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
