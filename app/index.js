@@ -4,7 +4,7 @@ import Main from './Containers/Main';
 import './Styles/main.scss';
 
 function renderApp() {
-  ReactDOM.render( < Main /> , document.getElementById('main'));
+  ReactDOM.render( < Main/> , document.getElementById('main'));
 }
 
 renderApp();
