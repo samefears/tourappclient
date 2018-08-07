@@ -10,4 +10,6 @@ function renderApp() {
 
 renderApp();
 
-module.hot.accept(renderApp);
+if (process.env.NODE_ENV !== 'production') {
+  module.hot.accept(renderApp);
+}
