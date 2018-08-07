@@ -1,0 +1,8 @@
+@mixin tmTransition{
+    transition: all 0.3s ease;
+}
+
+@mixin buttonTrans($bgcolor,$textcolor){
+    background-color: $bgcolor;
+    color: color($textcolor);
+}
