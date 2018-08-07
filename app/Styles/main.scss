@@ -1,5 +1,19 @@
-@import '_utilities/normalize';
+//
+// Base
+// -----------------------------------------------------------------------------
+@import './base/keyframes';
+@import './base/easings';
+@import './base/reset';
+@import './base/breakpoints';
+@import './base/colors';
+@import './base/typography';
+@import './base/layout';
+@import './base/hovers';
 
-body {
-  background: green;
-}
+
+//
+// Components
+// -----------------------------------------------------------------------------
+
+@import './components/nav';
+

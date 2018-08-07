@@ -1,4 +1,11 @@
-import React, { Component } from 'react';
+
+import React, {
+  Component
+} from 'react';
+import { Route, Link, Switch } from 'react-router-dom';
+import Tours from './Tours';
+import Chat from './Chat';
+import Nav from './Nav';
 import propTypes from 'prop-types';
 
 export default class Main extends Component {
@@ -9,6 +16,8 @@ export default class Main extends Component {
   state = {};
 
   render() {
-    return <div> Hello world </div>;
+    return (
+     <Nav />
+    )
   }
 }
