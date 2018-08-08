@@ -1,0 +1,166 @@
+// ==|== typography =============================================================
+// =============================================================================
+
+// Mixins
+// -----------------------------------------------------------------------------
+@mixin truncate($display: block) {
+  display: $display;
+  max-width: 100%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  // padding-bottom: 0.25em;
+}
+
+// Headings and Fonts
+// -----------------------------------------------------------------------------
+$header-font-family: "BebasNeue-Bold", sans-serif;
+$base-font-family: "BebasNeue-Regular",sans-serif;
+$base-font-size: 18px;
+$base-line-height:1.8;
+
+/*! Typebase.less v0.1.0 | MIT License */
+/* Setup */
+html {
+  /* Change default typefaces here */
+  font-family: $base-font-family;
+  font-size: $base-font-size;
+  line-height:$base-line-height;
+  -webkit-font-smoothing: antialiased;
+  font-weight: 900;
+}
+/* Copy & Lists */
+p {
+  line-height: $base-line-height;
+  margin-bottom: 1.2rem;
+  margin-top: 0;
+}
+ul,
+ol {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+ul li,
+ol li {
+  line-height: 1.5rem;
+}
+ul ul,
+ol ul,
+ul ol,
+ol ol {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+blockquote {
+  line-height: 1.5rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+/* Headings */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $header-font-family;
+  margin-top: 1.0;
+  margin-bottom: 0.75rem;
+  line-height: $base-line-height;
+  font-weight: 700;
+}
+h1 {
+  font-size: 3.2rem;
+  text-transform: uppercase;
+  @include breakpointMax($mobile){
+    font-size: 2rem;
+  }
+}
+h2 {
+  font-size: 2.5rem;
+  @include breakpointMax($mobile){
+    font-size: 1.8rem;
+  }
+}
+h3 {
+  font-size: 2rem;
+  @include breakpointMax($mobile){
+    font-size: 1.5rem;
+  }
+}
+h4 {
+  font-size: 1.5rem;
+  @include breakpointMax($mobile){
+    font-size: 1rem;
+  }
+}
+h5 {
+  font-size: 1rem;
+}
+h6 {
+  font-size: 0.9rem;
+}
+/* Tables */
+table {
+  margin-top: 1.5rem;
+  border-spacing: 0px;
+  border-collapse: collapse;
+}
+table td,
+table th {
+  padding: 0;
+  line-height: 33px;
+}
+/* Code blocks */
+code {
+  vertical-align: bottom;
+}
+/* Leading paragraph text */
+.lead {
+  font-size: 1.414rem;
+}
+/* Hug a the block above you */
+.hug {
+  margin-top: 0;
+}
+
+
+// Helper Classes
+// -----------------------------------------------------------------------------
+.text-truncate {
+  @include truncate;
+}
+
+.text-truncate--inline-block {
+  @include truncate('inline-block');
+}
+
+.text--center {
+  text-align:center;
+}
+
+.text--right {
+  text-align:right;
+}
+
+.text--left {
+  text-align:left;
+}
+
+.text--uppercase {
+  text-transform:uppercase;
+}
+
+.text-underline {
+  text-decoration: underline
+}
+
+.text-nowrap {
+  white-space: nowrap;
+}
+
+.text-wrap {
+  white-space: normal;
+  word-wrap: break-word;
+  word-break: break-word;
+}

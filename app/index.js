@@ -5,7 +5,7 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import reduxThunk from 'redux-thunk';
 import axios from 'axios';
 
-import Main from './Containers/Main';
+import App from './Containers/App';
 import './Styles/main.scss';
 
 window.axios = axios;
@@ -36,7 +36,7 @@ if (token) {
 function renderApp() {
   ReactDOM.render(
     <Provider store={ store }>
-      <Main />
+      <App isLoggedIn={ token !== 'undefined' } />
     </Provider>,
     document.getElementById('main')
   );
