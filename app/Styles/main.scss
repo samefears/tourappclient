@@ -10,6 +10,7 @@
 @import './base/layout';
 @import './base/hovers';
 @import './base/form';
+@import './base/normalize';
 @import './base/button';
 
 //
@@ -17,3 +18,5 @@
 // -----------------------------------------------------------------------------
 
 @import './components/nav';
+@import './components/datepicker';
+@import './components/addtour';

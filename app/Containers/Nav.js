@@ -34,6 +34,9 @@ class Nav extends Component {
               <li>
                 <Link to="/chat">Chat</Link>
               </li>
+              <li>
+                <Link to="/add-tour">Add A Tour</Link>
+              </li>
             </ul>
           </div>
           <div className="main--nav_right">

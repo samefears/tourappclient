@@ -1,12 +1,26 @@
 input[type='text'],
 input[type='password'],
-input[type='email'] {
-  padding-bottom: 3px;
-  border-bottom: 2px solid #333;
+input[type='email'],
+select {
+  border: 1px solid color(grey);
+  padding: 0.3rem;
 }
 
-label + input {
-  margin-left: 10px;
+label{
+  padding: 0.4rem;
+  display: inline-block;
+  text-align: center;
+  width: 150px;
+  background: color(grey);
+  color: color(white);
+}
+
+fieldset{
+  // display:inline-block;
+  padding: 0 !important;
+  margin: 0 !important;
+  margin-bottom: 1rem !important;
+  border: none !important;
 }
 
 .input-field {
