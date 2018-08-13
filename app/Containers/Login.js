@@ -3,6 +3,9 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
 
+import Input from '../Components/Input';
+import Button from '../Components/Button';
+
 import { loginUser } from '../actions';
 
 class Login extends Component {
@@ -12,6 +15,7 @@ class Login extends Component {
     history: PropTypes.shape({
       push: PropTypes.func,
     }),
+    error: PropTypes.string,
   };
 
   static defaultProps = {};
@@ -27,8 +31,11 @@ class Login extends Component {
     }
   }
 
-  _loginUser = () => {
-    this.props.loginUser(this.state.email, this.state.password);
+  _loginUser = (e) => {
+    e.preventDefault();
+    this.props
+      .loginUser(this.state.email, this.state.password)
+      .then((data) => this.props.history.push('/'));
   };
 
   _updateField = (e) => {
@@ -37,42 +44,43 @@ class Login extends Component {
 
   render() {
     return (
-      <div>
+      <form>
         <h2>Log In</h2>
-        <div className="input-field">
-          <label htmlFor="emailLogin">Email</label>
-          <input
-            type="email"
-            onChange={ this._updateField }
-            name="emailLogin"
-            id="email"
-            value={ this.state.email }
-          />
-        </div>
-        <div className="input-field">
-          <label htmlFor="passwordLogin">Password</label>
-          <input
-            type="password"
-            onChange={ this._updateField }
-            name="passwordLogin"
-            id="password"
-            value={ this.state.password }
-          />
-        </div>
-
-        <button className="button-submit" onClick={ this._loginUser }>
-          Login
-        </button>
-      </div>
+        {this.props.error && <p>Login Errors</p>}
+        <Input
+          label="Email"
+          type="email"
+          id="email"
+          onChange={ this._updateField }
+          value={ this.state.email }
+          required
+        />
+        <Input
+          label="Password"
+          type="password"
+          id="password"
+          onChange={ this._updateField }
+          value={ this.state.password }
+          required
+        />
+        <Button
+          classname="Button-submit"
+          disabled={ !this.state.email || !this.state.password }
+          onClick={ this._loginUser }
+          value="Login"
+        />
+      </form>
     );
   }
 }
 
 const mapStateToProps = (state) => ({
   isLoggedIn: state.authReducer.isLoggedIn,
+  error: state.authReducer.error,
 });
 
-const mapDispatchToProps = (dispatch) => bindActionCreators({ loginUser }, dispatch);
+const mapDispatchToProps = (dispatch) =>
+  bindActionCreators({ loginUser }, dispatch);
 
 export default connect(
   mapStateToProps,
