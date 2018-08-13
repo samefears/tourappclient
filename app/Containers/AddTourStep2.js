@@ -22,8 +22,8 @@ addInputs = (e) => {
   //create inputs based on numeber of bands chosen
   while (i < value) {
     i++;
-    let bandNameInput = ` <div className="tm-input--container"><label htmlFor="bandname">BAND ${i +
-      1} </label><input className="tm-input" type="text" placeholder="Band Name" name="bandname" /></div>`;
+    let bandNameInput = ` <fieldset><label htmlFor="bandname">BAND ${i +
+      1} </label><input type="text" placeholder="Band Name" name="bandName" onChange={this.props.handleChange}/></fieldset>`;
     target.innerHTML += bandNameInput;
   }
 };

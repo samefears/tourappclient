@@ -13,22 +13,39 @@ export default class AddTour extends Component {
   constructor(props){
     super(props);
     // let stepCounter = this.stepCounter;
-    this.state = {};
+    this.state = {
+      stepCounter: 0, 
+      tourName: '', 
+      locations: '',
+      numOfBands: 0,
+      bandNames: []
+    };
     
   }
   componentDidMount() {
-    this.setState({stepCounter: 0});
+    // this.setState({stepCounter: 0, tourName: "",locations:""});
+
   }
   
+    handleChange = (e) => {
+      const target = e.target;
+      const value = target.type === 'checkbox' ? target.checked : target.value;
+      const name = target.name;
+
+      this.setState({
+        [name]: value
+      });
+    }
+
     handleStepChangeNext = () => {
       let stepCounterRef = this.state.stepCounter;
       this.setState({ stepCounter: stepCounterRef + 1});
-      console.log(this.state.stepCounter);
+      // console.log(this.state);
     };
     handleStepChangeBack = () => {
       let stepCounterRef = this.state.stepCounter;
       this.setState({ stepCounter: stepCounterRef - 1});
-      console.log(this.state.stepCounter);
+      // console.log(this.state.stepCounter);
     };
     handleStepChangeComplete = () => {
       alert('YA DONE');
@@ -49,11 +66,15 @@ export default class AddTour extends Component {
               <form action="">
                 <fieldset>
                   <label htmlFor="tourName">Tour Name</label>
-                  <input type="text" name="tourName" />
+                  <input type="text" name="tourName"  onChange={ this.handleChange }/>
                 </fieldset>
                 <fieldset>
                   <label htmlFor="locations">Locations</label>
-                  <input type="text" name="locations" />
+                  <select htmlFor="locations" name="locations" onChange={ this.handleChange }>
+                    <option>Canada</option>
+                    <option>USA</option>
+                    <option>UK</option>
+                  </select>
                 </fieldset>
               </form>
               <DateRangePicker
@@ -74,14 +95,14 @@ export default class AddTour extends Component {
             </div>
           ) : null}
 
-          {this.state.stepCounter === 1 ? (<AddTourStep2 />) : null}
+          {this.state.stepCounter === 1 ? (<AddTourStep2 handleChange={this.handleChange} />) : null}
           {this.state.stepCounter === 2 ? (<AddTourStep3 />) : null}
 
         
           {/* only add back button if on step 2 or greater */}
-          {this.state.stepCounter > 0 ? <button onClick={ this.handleStepChangeBack }>Back</button> : null }
-          {this.state.stepCounter < 2 ? <button onClick={ this.handleStepChangeNext }>Next</button> : null}
-          {this.state.stepCounter === 2 ? <button onClick={ this.handleStepChangeComplete }>Finish</button> : null}
+          {this.state.stepCounter > 0 ? <button onClick={ this.handleStepChangeBack } className="button">Back</button> : null }
+          {this.state.stepCounter < 2 ? <button onClick={ this.handleStepChangeNext } className="button">Next</button> : null}
+          {this.state.stepCounter === 2 ? <button onClick={ this.handleStepChangeComplete } className="button">Finish</button> : null}
         </div>
       );
     }
