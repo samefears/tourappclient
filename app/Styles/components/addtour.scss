@@ -1,15 +1,19 @@
 .add-tour{
-    // label{
-
-    // }
-    // input{
-    //     margin-bottom: 1rem;
-    // }
+    .tour-steps__form{
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+    }
     &--progress{
         li{
             display: inline;
             margin-right: 1rem;
         }
+    }
+       
+    select {
+        margin-bottom: 1rem !important;
+        padding-right: 2rem !important;
+        padding-left: 2rem !important;
     }
 
 }

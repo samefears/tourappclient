@@ -15,12 +15,54 @@
   }
 }
 
+
+
+//
+//
+//   TOUR PROGRESS BAR
+//
+//
+
+.add-tour--progress{
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  li{
+    position: relative;
+    
+     &:before {
+       transition: opacity 0.3s ease;
+       position: absolute;
+       content: '';
+       opacity: 0;
+     }
+    &:after{
+      content: '';
+      border-top:1px solid color(gray);
+      position: absolute;
+      top: 15px;
+      left: 65px;
+      width: 100%
+    } 
+   &:last-of-type{
+     &:after {
+       content: none;
+     }
+   }
+  }
+}
 .add-tour--progress-step.active{
-  border-bottom: 2px solid color(blue);
+  position: relative;
+  &:before{
+    opacity: 1;
+    position: absolute;
+    content: '';
+    background: rgba(0,0,0,0.1);
+    width: 65px;
+    height: 65px;
+    top: -17px;
+    left: -14px;
+    border-radius: 50%;
+  }
 }
 
-// .button{
-//   background: color(black);
-//   padding: 1rem 2rem;
-//   color: color(white);
-// }

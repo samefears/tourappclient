@@ -1,7 +1,9 @@
 import types from './types';
 import axios from 'axios';
 
-import { ENDPOINT } from '../../config/index.js';
+import {
+  ENDPOINT
+} from '../../config';
 
 /**
  * * Signup User Action
@@ -23,7 +25,10 @@ export const signupUser = (email, password, firstName, lastName) => async (dispa
 
   localStorage.setItem('tourToken', JSON.stringify(res.data));
 
-  dispatch({ type: types.LOGIN_USER, payload: res.data });
+  dispatch({
+    type: types.LOGIN_USER,
+    payload: res.data
+  });
 };
 
 /**
@@ -42,7 +47,10 @@ export const loginUser = (email, password) => async (dispatch) => {
 
   localStorage.setItem('tourToken', JSON.stringify(res.data));
 
-  dispatch({ type: types.LOGIN_USER, payload: res.data });
+  dispatch({
+    type: types.LOGIN_USER,
+    payload: res.data
+  });
 };
 
 /**
@@ -52,5 +60,7 @@ export const loginUser = (email, password) => async (dispatch) => {
  */
 export const logoutUser = () => {
   localStorage.removeItem('tourToken');
-  return { type: types.LOGOUT_USER };
+  return {
+    type: types.LOGOUT_USER
+  };
 };

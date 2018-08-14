@@ -1,9 +1,17 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
+import React, {
+  Component
+} from 'react';
+import {
+  connect
+} from 'react-redux';
+import {
+  bindActionCreators
+} from 'redux';
 import PropTypes from 'prop-types';
 
-import { loginUser } from '../actions';
+import {
+  loginUser
+} from '../actions';
 
 class Login extends Component {
   static propTypes = {
@@ -32,38 +40,23 @@ class Login extends Component {
   };
 
   _updateField = (e) => {
-    this.setState({ [e.target.id]: e.target.value });
+    this.setState({
+      [e.target.id]: e.target.value
+    });
   };
 
   render() {
-    return (
+    return ( 
       <div>
-        <h2>Log In</h2>
+        <h2> Log In </h2> 
         <div className="input-field">
-          <label htmlFor="emailLogin">Email</label>
-          <input
-            type="email"
-            onChange={ this._updateField }
-            name="emailLogin"
-            id="email"
-            value={ this.state.email }
-          />
-        </div>
+          <label htmlFor="emailLogin"> Email </label> 
+          <input type="email" onChange={ this._updateField } name="emailLogin" id="email" value={ this.state.email }/> </div> 
         <div className="input-field">
-          <label htmlFor="passwordLogin">Password</label>
-          <input
-            type="password"
-            onChange={ this._updateField }
-            name="passwordLogin"
-            id="password"
-            value={ this.state.password }
-          />
+          <label htmlFor="passwordLogin"> Password </label> <input type="password" onChange={ this._updateField } name="passwordLogin" id="password" value={ this.state.password }/>  
         </div>
 
-        <button className="button-submit" onClick={ this._loginUser }>
-          Login
-        </button>
-      </div>
+        <button className="button-submit"onClick={ this._loginUser }> Login </button> </div>
     );
   }
 }
@@ -72,7 +65,9 @@ const mapStateToProps = (state) => ({
   isLoggedIn: state.authReducer.isLoggedIn,
 });
 
-const mapDispatchToProps = (dispatch) => bindActionCreators({ loginUser }, dispatch);
+const mapDispatchToProps = (dispatch) => bindActionCreators({
+  loginUser
+}, dispatch);
 
 export default connect(
   mapStateToProps,

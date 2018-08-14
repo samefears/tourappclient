@@ -25,7 +25,6 @@ class App extends Component {
             <Route exact path="/tours" component={ Tours } />
             <Route exact path="/chat" component={ Chat } />
             <Route exact path="/add-tour" component={ AddTour } />
-            <Route exact path="/add-tour-step1" component={AddTourStep1} />
             <Route exact path="/add-tour-step2" component={AddTourStep2} />
             <Route exact path="/add-tour-step3" component={AddTourStep3} />
           </div>
