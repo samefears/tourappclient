@@ -14,6 +14,11 @@ const initialState = {
 
 export default (state = initialState, action) => {
   switch (action.type) {
+    case types.LOGIN_ERROR:
+      return {
+        ...initialState,
+        error: action.payload,
+      };
     case types.LOGIN_USER:
       return {
         ...state,

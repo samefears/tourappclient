@@ -10,20 +10,30 @@ import { ENDPOINT } from '../../config/index.js';
  * @param {String} password - password of user signing in
  * @param {String} firstName - firstName of user signing in
  * @param {String} lastName - lastName of user signing in
+ * @param {Function} cb - lastName of user signing in
  *
  * @returns {Function} Dispatch function for Redux
  */
 export const signupUser = (email, password, firstName, lastName) => async (dispatch) => {
-  const res = await axios.post(`${ENDPOINT}/signup`, {
-    email,
-    password,
-    firstName,
-    lastName,
+  return new Promise(async (resolve, reject) => {
+    try {
+      const res = await axios.post(`${ENDPOINT}/signup`, {
+        email,
+        password,
+        firstName,
+        lastName,
+      });
+
+      localStorage.setItem('tourToken', JSON.stringify(res.data));
+
+      dispatch({ type: types.LOGIN_USER, payload: res.data });
+      resolve(res.data);
+    } catch (err) {
+      dispatch({ type: types.LOGIN_ERROR, payload: err.response.data });
+      localStorage.removeItem('tourToken');
+      reject(err.response.data);
+    }
   });
-
-  localStorage.setItem('tourToken', JSON.stringify(res.data));
-
-  dispatch({ type: types.LOGIN_USER, payload: res.data });
 };
 
 /**
@@ -34,15 +44,23 @@ export const signupUser = (email, password, firstName, lastName) => async (dispa
  *
  * @returns {Function} Dispatch function for Redux
  */
-export const loginUser = (email, password) => async (dispatch) => {
-  const res = await axios.post(`${ENDPOINT}/signin`, {
-    email,
-    password,
+export const loginUser = (email, password) => (dispatch) => {
+  return new Promise(async (resolve, reject) => {
+    try {
+      const res = await axios.post(`${ENDPOINT}/signin`, {
+        email,
+        password,
+      });
+
+      localStorage.setItem('tourToken', JSON.stringify(res.data));
+      dispatch({ type: types.LOGIN_USER, payload: res.data });
+      resolve(res.data);
+    } catch (err) {
+      dispatch({ type: types.LOGIN_ERROR, payload: err.response.data });
+      localStorage.removeItem('tourToken');
+      reject(err.response.data);
+    }
   });
-
-  localStorage.setItem('tourToken', JSON.stringify(res.data));
-
-  dispatch({ type: types.LOGIN_USER, payload: res.data });
 };
 
 /**
